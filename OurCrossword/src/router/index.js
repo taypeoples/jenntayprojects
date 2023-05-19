@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Homepage from './components/Homepage.vue';
-import Crossword from './components/Crossword.vue';
+import Homepage from '../components/Homepage.vue';
+import Crossword from '../components/Crossword.vue';
 import UserAccount from './components/UserAccount.vue';
 
 Vue.use(VueRouter);
