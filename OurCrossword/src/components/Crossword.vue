@@ -3,8 +3,9 @@
   <div id="crossword">
     <div class="container">
       <div class="nav">
-        <router-link to="/home">Home</router-link> &nbsp; &nbsp;
-        <router-link to="/account">My Account</router-link>
+        <router-link :to=" {name: 'home'}">Home</router-link>
+        &nbsp; &nbsp;
+        <p>My Account</p>
       </div>
       <div class="footer">About Us Contact</div>
       <div class="puzzle">this is a puzzle</div>
@@ -19,7 +20,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods:{
+    navigateHome(){
+      this.$router.push({name: 'home'});
+    }
+
+  }
+};
 </script>
 
 <style>

@@ -1,17 +1,17 @@
 <script>
-import Crossword from './components/Crossword.vue';
-
-
+import Crossword from "./components/Crossword.vue";
+import Homepage from './components/Homepage.vue';
 export default {
+  components: { Crossword, Homepage },
   name: "app",
-  components: {
-    Crossword
-  }
 };
 </script>
 
 <template>
-  <div><crossword /></div>
+  <div>
+    <crossword />
+    <homepage />
+    </div>
 </template>
 
 <style scoped>
