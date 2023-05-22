@@ -1,18 +1,17 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <div id="crossword">
+  <div>
     <div class="container">
       <div class="nav">
-        <router-link :to=" {name: 'home'}">Home</router-link>
+        <router-link :to="{ name: 'home' }">Home</router-link>
         &nbsp; &nbsp;
         <p>My Account</p>
       </div>
       <div class="footer">About Us Contact</div>
       <div class="puzzle">this is a puzzle</div>
       <div class="clues">
-        <ol class="clue-list">
-          <li>clue number one</li>
-          <li>clue number two</li>
+        <ol class="clue-list" v-for="cword in cwords" :key="cword.id">
+          <li>{{cword.clue}}</li>
         </ol>
       </div>
     </div>
@@ -20,13 +19,27 @@
 </template>
 
 <script>
-export default {
-  methods:{
-    navigateHome(){
-      this.$router.push({name: 'home'});
-    }
+import cwordsService from "../services/CwordsService";
 
-  }
+
+export default {
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: "crossword",
+  data(){
+    return{
+      cwords: [],
+    }
+  },
+  methods: {
+    navigateHome() {
+      this.$router.push({ name: "home" });
+    },
+  },
+  created() {
+    cwordsService.list().then((response) => {
+      this.cwords = response.data;
+    });
+  },
 };
 </script>
 

@@ -3,12 +3,18 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "serve": "npm-run-all --parallel json-server start",
+    "json-server": "json-server ./db/docs.json",
+    "start": "vue-cli-service serve",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "axios": "^1.4.0",
+    "core-js": "^3.9.1",
+    "json-server": "^0.17.1",
     "vue": "^3.3.2",
     "vue-router": "^4.2.1"
   },
@@ -17,6 +23,7 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "eslint": "^8.39.0",
     "eslint-plugin-vue": "^9.11.0",
+    "npm-run-all": "^4.1.5",
     "vite": "^4.3.5"
   }
 }
