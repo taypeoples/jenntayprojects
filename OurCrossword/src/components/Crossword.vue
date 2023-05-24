@@ -5,9 +5,9 @@
       <div class="nav">
         <router-link :to="{ name: 'home' }">Home</router-link>
         &nbsp; &nbsp;
-        <p>My Account</p>
+        <p>Account</p>
       </div>
-      <div class="footer">About Us Contact</div>
+      <div class="footer">About Us Contact Us</div>
       <div class="puzzle">this is a puzzle</div>
       <div class="clues">
         <ol class="clue-list" v-for="cword in cwords" :key="cword.id">
