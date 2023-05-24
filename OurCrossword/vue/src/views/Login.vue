@@ -1,85 +1,53 @@
 <template>
   <div>
-    <the-header></the-header>
-  <div class="box-form">
-    <div class="left">
-      <div class="overlay">
-        
-        <h1>Welcome back!</h1>
-        <span>
-          <p>Enter your login details to access your account.</p>
-        </span>
-      </div>
-    </div>
-    <div class="right">
-      <div class="login-container">
-        <form @submit.prevent="login">
-          <h1>Please Sign In</h1>
-          <div role="alert" v-if="invalidCredentials">
-            Invalid username and password!
-          </div>
-          <div role="alert" v-if="this.$route.query.registration">
-            Thank you for registering, please sign in.
-          </div>
-          <div class="form-input-group">
-            <input type="text" id="username" v-model="user.username" required autofocus placeholder="Enter your Username" />
-          </div>
-          <div class="form-input-group">
-            <input type="password" id="password" v-model="user.password" required placeholder="Enter your Password" />
-          </div>
-          <button type="submit">Sign in</button>
-          <p>
-            <router-link :to="{ name: 'register' }">Need an account? Sign up.</router-link>
-          </p>
-        </form>
-      </div>
-    </div>
-  </div>
+    <h1>Welcome back!</h1>
+    <span>
+      <p>Enter your login details to access your account.</p>
+    </span>
   </div>
 </template>
 
 <script>
-import TheHeader from '../components/TheHeader.vue';
 import authService from "../services/AuthService";
 
 export default {
   name: "login",
-  components: {TheHeader},
+
   data() {
     return {
       user: {
         username: "",
-        password: ""
+        password: "",
       },
-      invalidCredentials: false
+      invalidCredentials: false,
     };
   },
   methods: {
     login() {
       authService
         .login(this.user)
-        .then(response => {
+        .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           const response = error.response;
 
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
 body {
-  background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
+  background-image: linear-gradient(135deg, #fab2ff 10%, #1904e5 100%);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -91,7 +59,7 @@ body {
   padding-top: 40px;
   margin: 0 auto;
   width: 80%;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -115,10 +83,10 @@ body {
 }
 
 .box-form .left {
-  color: #FFFFFF;
+  color: #ffffff;
   background-size: 100%;
   background-repeat: no-repeat;
-  background-image: url('/pictures/Capture 2 login.PNG');
+
   overflow: hidden;
 }
 
@@ -146,7 +114,7 @@ body {
 
 .box-form .left .overlay span a {
   background: #3b5998;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-top: 10px;
   padding: 14px 50px;
   border-radius: 100px;
@@ -177,7 +145,7 @@ body {
 
 .box-form .right p {
   font-size: 14px;
-  color: #B0B3B9;
+  color: #b0b3b9;
 }
 
 .box-form .right .inputs {
@@ -187,7 +155,7 @@ body {
 .box-form .right input[type="text"] {
   border: none;
   outline: none;
-  border-bottom: 2px solid #B0B3B9;
+  border-bottom: 2px solid #b0b3b9;
   margin-top: 25px;
   padding: 10px;
   font-size: 16px;
@@ -210,7 +178,7 @@ body {
   font-size: 16px;
   border: none;
   outline: none;
-  border-bottom: 2px solid #B0B3B9;
+  border-bottom: 2px solid #b0b3b9;
 }
 .box-form .right #password {
   width: 100%;
@@ -219,7 +187,7 @@ body {
   font-size: 16px;
   border: none;
   outline: none;
-  border-bottom: 2px solid #B0B3B9;
+  border-bottom: 2px solid #b0b3b9;
 }
 .box-form .right input[type="text"] {
   width: 100%;
@@ -228,7 +196,7 @@ body {
   font-size: 16px;
   border: none;
   outline: none;
-  border-bottom: 2px solid #B0B3B9;
+  border-bottom: 2px solid #b0b3b9;
   placeholder: "Enter your username";
 }
 
@@ -239,12 +207,12 @@ body {
   font-size: 16px;
   border: none;
   outline: none;
-  border-bottom: 2px solid #B0B3B9;
+  border-bottom: 2px solid #b0b3b9;
   placeholder: "Enter your password";
 }
 .box-form .right button[type="submit"] {
   background-color: #3b5998;
-  color: #FFFFFF;
+  color: #ffffff;
   border: none;
   border-radius: 100px;
   padding: 12px 60px;
@@ -257,5 +225,4 @@ body {
 .box-form .right button[type="submit"]:hover {
   background-color: #237aec;
 }
-
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <p>&#169; Copyright 2023 Tech Elevator </p>
+  <div>Account information
+    
   </div>
 </template>
 
@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>

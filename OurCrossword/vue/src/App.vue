@@ -1,41 +1,49 @@
 <template>
   <div class="container">
-    <!-- <div class="nav">
-      <the-header />
-    </div> -->
-    <div class="body">
+    <nav>
+      <router-link to="/home">Home </router-link>
+      &nbsp; &nbsp;
+      <router-link to="/account">My Account</router-link>
+      &nbsp; &nbsp;
+      <router-link to="/login">Login </router-link>
+    </nav>
+    <div class="main-view">
       <router-view />
-
     </div>
+    <div class="footer">this is the footer</div>
   </div>
 </template>
 
 
 <script>
-
-
 export default {
-  components: {
-    /* TheHeader, */
-  },
+  components: {},
 };
 </script>
 
 <style scoped>
-/* .container {
+.container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.2fr 1.3fr 1.5fr;
+  grid-template-rows: 0.3fr 2.4fr 0.3fr;
   gap: 0px 0px;
+  grid-auto-flow: row;
   grid-template-areas:
     "nav nav nav"
-    "body body body"
-    "body body body";
-} */
-
-/* .nav {
-  background: #131313;
+    "main-view main-view main-view"
+    "footer footer footer";
 }
- */
 
+.nav {
+  grid-area: nav;
+}
+
+.main-view {
+  grid-area: main-view;
+  height: 100%;
+}
+
+.footer {
+  grid-area: footer;
+}
 </style>

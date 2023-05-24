@@ -124,7 +124,7 @@ body {
   color: #FFFFFF;
   background-size: 100%;
   background-repeat: no-repeat;
-  background-image: url('/pictures/Capture 2 login.PNG');
+  
   overflow: hidden;
 }
 

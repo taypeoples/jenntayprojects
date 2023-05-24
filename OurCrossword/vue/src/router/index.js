@@ -1,13 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home.vue'
+
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-import ChatBot from "../views/ChatBotView.vue"
-import JobSearch from "../views/JobSearch.vue"
-import CatPic from "../views/CatPic.vue"
+import Puzzle from '../components/Puzzle.vue'
+import Account from '../components/Account.vue'
+import Homepage from '../components/Homepage.vue'
+
 
 Vue.use(Router)
 
@@ -25,9 +26,9 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home,
+      path:"/home",
+      name: "home",
+      component: Homepage,
       meta: {
         requiresAuth: false
       }
@@ -57,29 +58,22 @@ const router = new Router({
       }
     },
     {
-      path: "/chatBot",
-      name: "chatBot",
-      component: ChatBot,
+      path: "/puzzle",
+      name: "puzzle",
+      component: Puzzle,
       meta: {
         requiresAuth: false
       }
     },
     {
-      path: "/jobSearch",
-      name: "jobSearch",
-      component: JobSearch,
+      path: "/account",
+      name: "account",
+      component: Account,
       meta: {
         requiresAuth: false
       }
-    },
-    {
-      path: "/catPic",
-      name: "catPic",
-      component: CatPic,
-      meta: {
-        requiresAuth: false
-      }
-    },
+    }
+    
   ]
 })
 
