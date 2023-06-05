@@ -1,10 +1,9 @@
 <template>
   <div class="puzzle-container">
     <div class="clues">
-      <div ></div>
-      <ol > 
-        <li v-for="word in words" v-bind:key="word.id"> {{ crosswords }}
-      </li>
+  
+      <ol>
+        <li v-for="word in crosswords" v-bind:key="word.id">{{ crossword.word}}</li>
         <li>clue one</li>
         <li>clue two</li>
       </ol>
@@ -14,25 +13,20 @@
 </template>
 
 <script>
-
-import CrosswordsService from "../services/CrosswordsService.js"
+import CrosswordsService from "../services/CrosswordsService.js";
 export default {
   name: "puzzle",
   data() {
     return {
       crosswords: [],
-
-    };
+    }
   },
   methods: {},
   created() {
     CrosswordsService.listWords().then((response) => {
       this.crosswords = response.data;
     });
-  }
- 
-    
-  
+  },
 };
 </script>
 
