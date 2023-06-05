@@ -7,4 +7,6 @@ import java.util.List;
 public interface WordDao {
     List<Word> findAllWords();
     String findWordByID(int id);
+
+    String findClueByID(int id);
 }

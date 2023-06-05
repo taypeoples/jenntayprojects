@@ -3,7 +3,7 @@
     <div class="clues">
   
       <ol>
-        <li v-for="word in crosswords" v-bind:key="word.id">{{ crossword.word}}</li>
+        <li v-for="crossword in crosswords" v-bind:key="crossword.id">{{ crossword.word}}</li>
         <li>clue one</li>
         <li>clue two</li>
       </ol>

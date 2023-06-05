@@ -2,17 +2,15 @@ package com.techelevator.tenmo.controller;
 
 import com.techelevator.tenmo.dao.WordDao;
 import com.techelevator.tenmo.model.Word;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-
+@CrossOrigin
 public class WordController {
-
+    @Autowired
     private final WordDao wordDao;
 
 
