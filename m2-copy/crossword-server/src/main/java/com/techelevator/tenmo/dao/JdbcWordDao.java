@@ -48,7 +48,9 @@ public class JdbcWordDao implements WordDao{
        String sql ="SELECT clue FROM crossword WHERE word_id = ? ";
        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
        if(results.next()){
-
+            String resultClue = results.getString("clue");
+            return resultClue;
        }
+       return null;
     }
 }

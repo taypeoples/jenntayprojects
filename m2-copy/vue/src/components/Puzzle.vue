@@ -49,5 +49,6 @@ export default {
 
 .crossword {
   grid-area: crossword;
+  
 }
 </style>

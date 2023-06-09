@@ -27,4 +27,6 @@ public class WordController {
     public String getWordByID(@PathVariable int id){
         return wordDao.findWordByID(id);
     }
+
+    
 }
