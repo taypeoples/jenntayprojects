@@ -28,5 +28,8 @@ public class WordController {
         return wordDao.findWordByID(id);
     }
 
-    
+@RequestMapping (value = "/puzzle/{puzzleID}", method = RequestMethod.GET)
+    public List<Word> getClueByPuzzleID (@PathVariable Integer puzzleID){
+        return wordDao.findAllCluesByPuzzleID(puzzleID);
+}
 }

@@ -6,11 +6,13 @@ public class Word {
     private int id;
     private String word;
     private String clue;
+    private int puzzleID;
 
-    public Word(int id, String word, String clue) {
+    public Word(int id, String word, String clue, int puzzleID) {
         this.id = id;
         this.word = word;
         this.clue = clue;
+        this.puzzleID = puzzleID;
     }
 
     public Word(){}
@@ -36,5 +38,13 @@ public class Word {
 
     public void setClue(String clue) {
         this.clue = clue;
+    }
+
+    public int getPuzzleID() {
+        return puzzleID;
+    }
+
+    public void setPuzzleID(int puzzleID) {
+        this.puzzleID = puzzleID;
     }
 }

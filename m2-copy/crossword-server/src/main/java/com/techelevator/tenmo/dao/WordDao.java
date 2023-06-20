@@ -9,4 +9,7 @@ public interface WordDao {
     String findWordByID(int id);
 
     String findClueByID(int id);
+
+    List<Word> findAllWordsByPuzzleID (int puzzleID);
+    List<Word> findAllCluesByPuzzleID (int puzzleID);
 }
