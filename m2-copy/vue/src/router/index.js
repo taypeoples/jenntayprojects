@@ -72,7 +72,14 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+    },
+    {path: "/puzzle/:puzzleID",
+    name: "puzzleByID",
+    component: Puzzle,
+    meta: {
+      requiresAuth: false
     }
+  }
     
   ]
 })

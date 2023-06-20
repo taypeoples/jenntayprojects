@@ -9,6 +9,10 @@ export default{
 
     getWordByID(id){
         return axios.get(`/words/${id}`);
+    },
+
+    getClueByPuzzleID(puzzleID){
+        return axios.get(`/puzzle/${puzzleID}`);
     }
 }
 

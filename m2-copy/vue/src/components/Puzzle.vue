@@ -5,10 +5,6 @@
         <li v-for="crossword in crosswords" v-bind:key="crossword.id">
           {{ crossword.word }}
         </li>
-        <li>
-          clue one more text here to test out auto spacing of clues container
-        </li>
-        <li>clue two</li>
       </ol>
     </div>
     <div class="crossword">
@@ -34,7 +30,7 @@ export default {
     },
   },
   created() {
-    CrosswordsService.listWords().then((response) => {
+    CrosswordsService.getClueByPuzzleID(1).then((response) => {
       this.crosswords = response.data;
     });
   },
